@@ -193,4 +193,3 @@ colleague-skill/
 ## License
 
 MIT © [titanwings](https://github.com/titanwings)
-]]>

@@ -21,13 +21,29 @@ Your predecessor handed over, trying to condense three years into three pages?<b
 
 <br>
 
-Provide source materials (Feishu messages, DingTalk docs, emails, screenshots)<br>
+Provide source materials (Feishu messages, DingTalk docs, Slack messages, emails, screenshots)<br>
 plus your subjective description of the person<br>
 and get an **AI Skill that actually works like them**
 
 [Supported Sources](#supported-data-sources) · [Install](#install) · [Usage](#usage) · [Demo](#demo) · [Detailed Install](INSTALL.md) · [**中文**](README.md)
 
 </div>
+
+---
+
+### 🌟 Related Project: [ex.skill](https://github.com/titanwings/ex-skill)
+
+> Based on community feedback, we've updated **ex.skill** (a.k.a. 前任.skill)! Now supports:
+>
+> - **WeChat chat history auto-import** (Windows / macOS, just keep WeChat desktop logged in, zero config)
+> - **iMessage auto-extraction** (macOS users)
+> - **Full astrology chart interpretation** (Sun/Moon/Rising/Venus/Mars/Mercury × 12 signs)
+> - **MBTI 16 types + cognitive functions**, Enneagram, attachment styles
+> - All gender identities and relationship types supported
+>
+> Colleague left? Use **colleague.skill**. Ex left? Use **[ex.skill](https://github.com/titanwings/ex-skill)**. Cyber-immortality, end to end 🌟🌟🌟
+>
+> If you find this interesting, give both projects a Star!
 
 ---
 
@@ -39,6 +55,7 @@ and get an **AI Skill that actually works like them**
 |--------|:--------:|:-----------:|:------------:|-------|
 | Feishu (auto) | ✅ API | ✅ | ✅ | Just enter a name, fully automatic |
 | DingTalk (auto) | ⚠️ Browser | ✅ | ✅ | DingTalk API doesn't support message history |
+| Slack (auto) | ✅ API | — | — | Requires admin to install Bot; free plan limited to 90 days |
 | PDF | — | ✅ | — | Manual upload |
 | Images / Screenshots | ✅ | — | — | Manual upload |
 | Feishu JSON export | ✅ | ✅ | — | Manual upload |
@@ -75,7 +92,7 @@ git clone https://github.com/titanwings/colleague-skill ~/.openclaw/workspace/sk
 pip3 install -r requirements.txt
 ```
 
-> Feishu/DingTalk auto-collection requires App credentials. See [INSTALL.md](INSTALL.md) for details.
+> Feishu/DingTalk/Slack auto-collection requires App credentials. See [INSTALL.md](INSTALL.md) for details.
 
 ---
 
@@ -179,6 +196,7 @@ create-colleague/
 │   ├── feishu_browser.py         # Feishu browser method
 │   ├── feishu_mcp_client.py      # Feishu MCP method
 │   ├── dingtalk_auto_collector.py # DingTalk auto-collector
+│   ├── slack_auto_collector.py   # Slack auto-collector
 │   ├── email_parser.py           # Email parser
 │   ├── skill_writer.py           # Skill file management
 │   └── version_manager.py        # Version archive & rollback

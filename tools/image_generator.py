@@ -26,9 +26,9 @@ from pathlib import Path
 
 # ─── Config ──────────────────────────────────────────────────────────────────
 
-NANOBANANA_API_KEY = os.environ.get("NANOBANANA_API_KEY", "")
-NANOBANANA_API_URL = os.environ.get("NANOBANANA_API_URL", "http://35.220.164.252:3888/v1/images/generations")
-NANOBANANA_MODEL = os.environ.get("NANOBANANA_MODEL", "doubao-seedream-5-0-260128")
+IMAGE_API_KEY = os.environ.get("IMAGE_API_KEY", "")
+IMAGE_API_URL = os.environ.get("IMAGE_API_URL", "http://35.220.164.252:3888/v1/images/generations")
+IMAGE_MODEL = os.environ.get("IMAGE_MODEL", "doubao-seedream-5-0-260128")
 NANOBANANA_SIZE = "1920x1920"  # minimum 3686400 pixels required
 
 JOBS_DIR = Path(tempfile.gettempdir()) / "colleague_skill_jobs"
@@ -59,13 +59,13 @@ def _worker(job_id: str, prompt: str, chat_id: str):
 
     try:
         # 1. Call NanoBanana
-        if not NANOBANANA_API_KEY:
-            raise ValueError("NANOBANANA_API_KEY is not set")
+        if not IMAGE_API_KEY:
+            raise ValueError("IMAGE_API_KEY is not set")
 
         resp = requests.post(
-            NANOBANANA_API_URL,
-            headers={"Authorization": f"Bearer {NANOBANANA_API_KEY}"},
-            json={"model": NANOBANANA_MODEL, "prompt": prompt, "n": 1, "size": NANOBANANA_SIZE},
+            IMAGE_API_URL,
+            headers={"Authorization": f"Bearer {IMAGE_API_KEY}"},
+            json={"model": IMAGE_MODEL, "prompt": prompt, "n": 1, "size": NANOBANANA_SIZE},
             timeout=60,
         )
         resp.raise_for_status()
